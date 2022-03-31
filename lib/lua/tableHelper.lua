@@ -246,6 +246,16 @@ function tableHelper.getIndexByValue(inputTable, valueToFind)
     return nil
 end
 
+function tableHelper.getIndexByValueAsString(inputTable, valueToFind)
+    for key, value in pairs(inputTable) do
+        if value == valueToFind then
+            return "\"" .. key .. "\""
+        end
+    end
+
+    return "\"\""
+end
+
 -- Iterate through a table and return a new table based on it that has no nil values
 -- (useful for numerical arrays because they retain nil values)
 --

@@ -1123,7 +1123,7 @@ function BasePlayer:SaveInventory(playerPacket)
     local action = playerPacket.action
 
     tes3mp.LogMessage(enumerations.log.INFO, "Saving " .. tableHelper.getCount(playerPacket.inventory) ..
-        " item(s) to inventory with action " .. tableHelper.getIndexByValue(enumerations.inventory, action))
+        " item(s) to inventory with action " .. tableHelper.getIndexByValueAsString(enumerations.inventory, action))
 
     if action == enumerations.inventory.SET then self.data.inventory = {} end
 

@@ -387,7 +387,7 @@ eventHandler.InitializeDefaultHandlers = function()
 
         for uniqueIndex, object in pairs(objects) do
             tes3mp.LogAppend(enumerations.log.INFO, "- Accepting dialogue choice type " ..
-                tableHelper.getIndexByValue(enumerations.dialogueChoice, object.dialogueChoiceType) ..
+                tableHelper.getIndexByValueAsString(enumerations.dialogueChoice, object.dialogueChoiceType) ..
                 " for " .. object.refId .. " " .. uniqueIndex)
 
             if object.dialogueChoiceType == enumerations.dialogueChoice.TOPIC then
@@ -1250,7 +1250,7 @@ eventHandler.OnGenericObjectEvent = function(pid, cellDescription, packetType)
         local packetOrigin = tes3mp.GetObjectListOrigin()
         local clientScript
         tes3mp.LogAppend(enumerations.log.INFO, "- packetOrigin was " ..
-            tableHelper.getIndexByValue(enumerations.packetOrigin, packetOrigin))
+            tableHelper.getIndexByValueAsString(enumerations.packetOrigin, packetOrigin))
 
         if logicHandler.IsPacketFromConsole(packetOrigin) and not logicHandler.IsPlayerAllowedConsole(pid) then
             tes3mp.Kick(pid)
@@ -1426,7 +1426,7 @@ eventHandler.OnContainer = function(pid, cellDescription)
         tes3mp.ReadReceivedObjectList()
         local packetOrigin = tes3mp.GetObjectListOrigin()
         tes3mp.LogAppend(enumerations.log.INFO, "- packetOrigin was " ..
-            tableHelper.getIndexByValue(enumerations.packetOrigin, packetOrigin))
+            tableHelper.getIndexByValueAsString(enumerations.packetOrigin, packetOrigin))
 
         if logicHandler.IsPacketFromConsole(packetOrigin) and not logicHandler.IsPlayerAllowedConsole(pid) then
             tes3mp.Kick(pid)
@@ -1517,7 +1517,7 @@ eventHandler.OnVideoPlay = function(pid)
         tes3mp.ReadReceivedObjectList()
         local packetOrigin = tes3mp.GetObjectListOrigin()
         tes3mp.LogAppend(enumerations.log.INFO, "- packetOrigin was " ..
-            tableHelper.getIndexByValue(enumerations.packetOrigin, packetOrigin))
+            tableHelper.getIndexByValueAsString(enumerations.packetOrigin, packetOrigin))
 
         if logicHandler.IsPacketFromConsole(packetOrigin) and not logicHandler.IsPlayerAllowedConsole(pid) then
             tes3mp.Kick(pid)
